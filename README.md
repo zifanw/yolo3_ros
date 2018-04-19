@@ -19,6 +19,7 @@ YOLOv3 method is original described in https://pjreddie.com/media/files/papers/Y
 
 ## Result
 
+![image](demo1.png)
 
 ## Installation
 
@@ -31,7 +32,7 @@ YOLOv3 method is original described in https://pjreddie.com/media/files/papers/Y
 
 Go to your workspace and download the repo:
 
-    git clone --recursive
+    git clone --recursive https://github.com/SailColubrid/yolo3_ros.git
 
 Build Darknet first, refer to https://pjreddie.com/darknet/install/
 
