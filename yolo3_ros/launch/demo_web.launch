@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="camera_node" pkg="yolo3_ros" type="read_camera.py"/>
+  <node name="yolo_node" pkg="yolo3_ros" type="yolo3_node.py"/>
+
+</launch>
