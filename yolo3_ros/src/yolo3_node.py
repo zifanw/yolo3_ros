@@ -126,10 +126,6 @@ load_image = lib.load_image_color
 load_image.argtypes = [c_char_p, c_int, c_int]
 load_image.restype = IMAGE
 
-load_image_cv2 = lib.load_image_cv2
-load_image_cv2.argtypes = [IMAGE]
-load_image_cv2.restype = IMAGE
-
 rgbgr_image = lib.rgbgr_image
 rgbgr_image.argtypes = [IMAGE]
 
