@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <launch>
+
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find yolo3_ros)/config/demo.rviz" />
+  <param name="use_gui" value="$(arg gui)"/>
+
   <node name="camera_node" pkg="yolo3_ros" type="read_camera.py"/>
   <node name="yolo_node" pkg="yolo3_ros" type="yolo3_node.py"/>
-
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" respawn="true" respawn_delay="10" output="screen"/>
 </launch>

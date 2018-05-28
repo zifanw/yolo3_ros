@@ -21,8 +21,8 @@ def camera():
 		break
         frame = imutils.resize(frame, width=500)
         pub.publish(bridge.cv2_to_imgmsg(frame, "bgr8"))
-        cv2.imshow("Image window", frame)
-        key = cv2.waitKey(1) & 0xFF
+    #    cv2.imshow("Image window", frame)
+    #    key = cv2.waitKey(1) & 0xFF
         rate.sleep()
 
 if __name__ == '__main__':
