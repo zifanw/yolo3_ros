@@ -61,7 +61,7 @@ class METADATA(Structure):
 
 
 #lib = CDLL("/home/pjreddie/documents/darknet/libdarknet.so", RTLD_GLOBAL)
-lib = CDLL("../darknet/libdarknet.so", RTLD_GLOBAL)
+lib = CDLL("/home/sail/catkin_yolo/src/darknet/libdarknet.so", RTLD_GLOBAL)
 lib.network_width.argtypes = [c_void_p]
 lib.network_width.restype = c_int
 lib.network_height.argtypes = [c_void_p]
@@ -119,16 +119,9 @@ load_meta = lib.get_metadata
 lib.get_metadata.argtypes = [c_char_p]
 lib.get_metadata.restype = METADATA
 
-get_image_from_stream = lib.get_image_from_stream
-get_image_from_stream.restype = IMAGE
-
 load_image = lib.load_image_color
 load_image.argtypes = [c_char_p, c_int, c_int]
 load_image.restype = IMAGE
-
-load_image_cv2 = lib.load_image_cv2
-load_image_cv2.argtypes = [IMAGE]
-load_image_cv2.restype = IMAGE
 
 rgbgr_image = lib.rgbgr_image
 rgbgr_image.argtypes = [IMAGE]
@@ -196,8 +189,8 @@ def callback(data):
 ## ROS Node Ends
 
 if __name__ == '__main__':
-    net = load_net("../darknet/cfg/yolov3.cfg", "../darknet/yolov3.weights", 0)
-    meta = load_meta("../darknet/cfg/coco.data")
+    net = load_net("/home/sail/catkin_yolo/src/darknet/cfg/yolov3.cfg", "/home/sail/catkin_yolo/src/darknet/yolov3.weights", 0)
+    meta = load_meta("/home/sail/catkin_yolo/src/darknet/cfg/coco.data")
     try:
         rospy.init_node('yolo_node', anonymous=True)
         rospy.loginfo('YOLO is initilized...')

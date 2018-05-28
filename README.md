@@ -45,9 +45,18 @@ if you want to use GPU and cudnn. Please make sure you change
 in Makefile into
 
     OPENCV = 1
-to enable the use of OpenCV. Then:
+to enable the use of OpenCV. And for ros_yolo can use the files in darket, you also have to change the paths in darket/cfg/coco.data:
+
+    valid = /[YOUR_PATH_TO_DARKNET]/data/coco_val_5k.list
+    names = /[YOUR_PATH_TO_DARKNET]/data/coco.names
+
+Then:
 
     make -j4
+
+Then go to /catkin_ws/src/yolo3_ros/src/yolo_node.py, go to line 64 and change the path to .so file to yours.:
+
+    lib = CDLL("/[YOUR_PATH_TO_DARKENT]/libdarknet.so", RTLD_GLOBAL)
 
 Build the ROS package
 
